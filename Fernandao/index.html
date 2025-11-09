@@ -4,23 +4,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta charset="UTF-8" />
     <title>To Do List</title>
+    <style>
+      *{background-color: aliceblue;
+        padding: 3px;
+       }
+
+      .title{
+        display: flex;
+        justify-content: center;
+      }
+
+      .buttons{
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+      }
+
+      .tarefa{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+    </style>
   </head>
   <body>
-    <header>
+    <header class="title">
       <h1>To Do List</h1>
     </header>
     <main>
+      <div class="buttons">
         <input type='button'  value='Gravar Lista' id="gravar">
         <input type='button'  value='Recuperar Lista' id="recuperar">
         <input type='button'  value='Limpar' id="limpar">
+      </div>
         <br><br>
+        <div class="tarefa">
         <label for="tarefa">Tarefa:</label>
         <input type="text" name="tarefa" id="tarefa"><br><br>
-        <input type='button'  value='Adicionar Tarefa' id="adicionar"> <br><br >
+        <input type='button'  value='Adicionar Tarefa' id="adicionar">
+        </div>
+         <br><br >
       
-        <section id="lista">...</section>
+        <section class="tarefa" id="lista" class="list">...</section>
     </main>
-
     <script>
       document.querySelector('#adicionar').addEventListener('click', insereTarefa);
       document.querySelector('#gravar').addEventListener('click', gravar);
