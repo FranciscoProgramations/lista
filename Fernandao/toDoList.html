@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8" />
+    <title>To Do List</title>
+  </head>
+  <body>
+    <header>
+      <h1>To Do List</h1>
+    </header>
+    <main>
+        <input type='button'  value='Gravar Lista' id="gravar">
+        <input type='button'  value='Recuperar Lista' id="recuperar">
+        <input type='button'  value='Limpar' id="limpar">
+        <br><br>
+        <label for="tarefa">Tarefa:</label>
+        <input type="text" name="tarefa" id="tarefa"><br><br>
+        <input type='button'  value='Adicionar Tarefa' id="adicionar"> <br><br >
+      
+        <section id="lista">...</section>
+    </main>
+
+    <script>
+      document.querySelector('#adicionar').addEventListener('click', insereTarefa);
+      document.querySelector('#gravar').addEventListener('click', gravar);
+      document.querySelector('#recuperar').addEventListener('click', recuperar);
+      document.querySelector('#limpar').addEventListener('click', limpar);
+
+      let toDoList=[]; //Variável com os dados da TODO list
+
+      function mostra() {
+        let valor = "";
+        for (let i = 0; i < toDoList.length; i++) {
+          valor += `
+          <input type="checkbox" id="tarefa${i}" onclick ="excluirTarefa(${i})">
+          <label for="tarefa${i}">${toDoList[i]}</label><br>`;
+        }
+        document.querySelector("#lista").innerHTML = valor;
+      }
+
+      // Inclui e exclui terefas no array toDoList
+      function insereTarefa() {
+        toDoList.push( 
+          document.querySelector("#tarefa").value
+          );
+        mostra();
+      }
+      function excluirTarefa(num) {
+        toDoList.splice(num, 1);
+        mostra();
+      }
+
+      //Operações no localstorage
+      function gravar ()
+      {
+        localStorage.setItem("lista",JSON.stringify(toDoList));
+      }
+      function recuperar ()
+      {
+        toDoList=[];
+        lista=localStorage.getItem("lista");
+        if(lista){
+          toDoList=JSON.parse(lista);
+        }
+        mostra();
+      }
+      function limpar() {
+         localStorage.removeItem('lista');
+         toDoList=[];
+         mostra();
+      } 
+    </script>
+  </body>
+</html>
