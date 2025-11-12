@@ -1,0 +1,37 @@
+      *{background-color: aliceblue;
+        padding: 3px;
+       }
+
+      .title{
+        display: flex;
+        justify-content: center;
+      }
+
+      .buttons{
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+      }
+
+      .tarefa{
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        flex-direction: column;
+      }
+
+      #lista{
+        background-color: rgb(0, 0, 0);
+        color: rgb(230, 230, 230);
+        max-width: 40%;
+        margin-left: 30%;
+      }
+
+      
+
+      #lista li{
+        background-color: rgb(0, 0, 0);
+      }
+      
+      
+
