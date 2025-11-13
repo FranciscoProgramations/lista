@@ -3,7 +3,6 @@ textoTarefa = document.getElementById("tarefa")
 listaTarefa = document.getElementById("lista")
 document.querySelector("#gravar").addEventListener("click", salvarTarefa)
 
-
 carregarnoinicio()
 
 //  Criando a Tarefa e adicionando ela na lista
@@ -20,14 +19,23 @@ function adicionarTarefa(){
 }
 
 function criarTarefa(tarefa){
-    listaItem = document.createElement("li");
+    var listaItem = document.createElement("li");
 
     listaItem.textContent = tarefa;
 
     listaTarefa.appendChild(listaItem)
 
-    document.querySelector("#limpar").addEventListener("click", limparTarefas)
+    function limparTarefas(){
+        localStorage.clear();
+        listaItem.remove();
+    }
+    
+    listaItem.addEventListener('click', function(){
+            listaItem.style.textDecoration = "line-through"
+    })
 
+
+    document.querySelector("#limpar").addEventListener("click", limparTarefas)
 }
 
 
@@ -53,11 +61,7 @@ function carregarnoinicio(){
 
 }
 
-// Limpando as Tarefas
 
-function limparTarefas(){
-        localStorage.clear();
-        listaTarefa.removeChild(listaItem);
-}
+
 
 
