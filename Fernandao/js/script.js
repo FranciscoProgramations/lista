@@ -35,7 +35,7 @@ function criarTarefa(tarefa){
     })
 
     listaItem.addEventListener('dblclick', function(){
-            listaItem.remove()
+            listaTarefa.removeChild(listaItem)
     })
 
 
@@ -64,7 +64,6 @@ function carregarnoinicio(){
     tarefas.forEach(criarTarefa);
 
 }
-
 
 
 
