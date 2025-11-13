@@ -34,6 +34,10 @@ function criarTarefa(tarefa){
             listaItem.style.textDecoration = "line-through"
     })
 
+    listaItem.addEventListener('dblclick', function(){
+            listaItem.remove()
+    })
+
 
     document.querySelector("#limpar").addEventListener("click", limparTarefas)
 }
@@ -60,6 +64,7 @@ function carregarnoinicio(){
     tarefas.forEach(criarTarefa);
 
 }
+
 
 
 
