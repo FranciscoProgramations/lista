@@ -48,7 +48,7 @@
   }
   
   input[type="text"] {
-    width: calc(100% - 22px);
+    width: calc(100% - 22px); /* Ajuste para o padding */
     padding: 10px;
     margin-bottom: 10px;
     border-radius: 4px;
